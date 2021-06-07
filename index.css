@@ -16,6 +16,7 @@ body {
 	margin: auto;
 	max-width: 450px;
 	font-size: 16px;
+	overscroll-behavior: contain;
 }
 
 #game-title {
