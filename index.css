@@ -29,20 +29,17 @@ body {
 	margin-top: 3rem;
 }
 
-#game-meta {
-	width: 100%;
-	clear: both;
+#game-meta-header {
+	display: flex;
+	justify-content: space-between;
 }
 
-#game-best-score {
-	float: left;
+#game-meta-footer {
+	display: flex;
+	justify-content: space-between;
 }
 
-#game-current-score {
-	float: right;
-}
-
-.dark-mode-emoji {
+.dark-theme-emoji {
 	height: 1em;
 	width: 1em;
 	float: right;
@@ -50,8 +47,44 @@ body {
 }
 
 .game-meta-emoji {
-	height: 1em;
-	width: 1em;
+	height: 1.25em;
+	width: 1.25em;
+}
+
+#game-meta-header #game-best-score {
+	width: 120px;
+	display: inline-flex;
+	justify-content: flex-start;
+}
+
+#game-meta-header #game-best-score .game-meta-emoji {
+	margin-right: 0.5em;
+}
+
+#game-meta-header #god-mode-status .game-meta-emoji {
+	cursor: pointer;
+}
+
+#game-meta-header #game-last-score .game-meta-emoji {
+	margin-left: 0.5em;
+}
+
+#game-meta-header #game-last-score {
+	width: 120px;
+	display: inline-flex;
+	justify-content: flex-end;
+}
+
+#game-meta-header .game-meta-emoji {
+	vertical-align: text-top;
+}
+
+#game-meta-footer .game-meta-emoji {
+	vertical-align: text-bottom;
+}
+
+.game-meta-emoji.grayscale-emoji {
+	filter: grayscale(100%);
 }
 
 .game-comment-emoji {
@@ -71,6 +104,20 @@ body {
 	border-radius: 4px;
 }
 
+#game-overlay {
+	position: absolute;
+	z-index: 1;
+	width: 410px;
+	height: 410px;
+	top: 18px;
+	left: 18px;
+	opacity: 90%;
+	border-radius: 2px;
+	border: 1px solid #121212;
+	background-color: #ededed;
+	box-shadow: 1px 1px 20px 2px #999999;
+}
+
 #player {
 	background-color: #ff0000;
 	position: absolute;
@@ -87,7 +134,7 @@ body {
 .enemy {
 	background-color: #0000ff;
 	position: absolute;
-	box-shadow: 1px 1px 60px 2px #999999;
+	box-shadow: 1px 1px 20px 2px #999999;
 	border-radius: 3px;
 	border: 1px solid;
 
@@ -127,7 +174,8 @@ body {
 	opacity: 60%;
 }
 
-#game-meta,
+#game-meta-header,
+#game-meta-footer,
 #game-area {
 	opacity: 87%;
 }
@@ -139,6 +187,13 @@ body.dark {
 
 body.dark #game-area {
 	border: 2px solid #ededed;
+	background-color: #121212;
+}
+
+body.dark #game-overlay {
+	border: 1px solid #ededed;
+	background-color: #121212;
+	box-shadow: 1px 1px 20px 2px #444444;
 }
 
 body.dark #player {
@@ -149,7 +204,7 @@ body.dark .enemy {
 	box-shadow: 1px 1px 20px 2px #444444;
 }
 
-.game-play-again-btn {
+.game-btn {
 	padding: 6px;
 	border-radius: 4px;
 	background: blanchedalmond;
@@ -157,33 +212,38 @@ body.dark .enemy {
 	text-transform: uppercase;
 	font-family: 'Fira Code', sans-serif;
 	font-weight: 700;
-	margin: 8px 8px 4px 0px;
+	width: 160px;
+	margin: 8px 0px 2px 0px;
 	border: 2px solid black;
 }
 
-.game-play-again-btn:hover:enabled,
-.game-play-again-btn:focus:enabled {
+.game-play-btn {
+	background: skyblue;
+}
+
+.game-btn:hover:enabled,
+.game-btn:focus:enabled {
 	box-shadow: 0 0.5em 0.5em -0.4em #888888;
 	transform: translateY(-0.25em);
 	outline: none;
 	border: 2px solid black;
 }
 
-.game-play-again-btn:active:enabled {
+.game-btn:active:enabled {
 	box-shadow: 0 0.5em 0.5em -0.4em #888888;
 	border: 2px solid black;
 	transform: translateY(-0.125em);
 }
 
-.game-play-again-btn:disabled,
-.game-play-again-btn[disabled] {
+.game-btn:disabled,
+.game-btn[disabled] {
 	border: 2px solid #999999;
 	background-color: #cccccc;
 	color: #666666;
 }
 
 /* Smaller Game Area */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
 	body {
 		max-width: 350px;
 		font-size: 14px;
