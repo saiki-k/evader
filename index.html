@@ -2,38 +2,43 @@
 <html>
 	<head>
 		<title>EVADER</title>
-		<link href='./index.css' rel='stylesheet' />
+		<link href='assets/index.css' rel='stylesheet' />
+		<link href='assets/spritesheet.css' rel='stylesheet' />
 		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Code' />
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 		<meta charset='utf-8' />
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 	</head>
 
 	<body class='dark'>
-		<h1 id='game-title'>evader <span id='dark-theme-switch'></span></h1>
-		
-		<div id='game-meta-header'>
-			<span id='game-best-score'></span>
-			<span id='god-mode-status'></span>
-			<span id='game-last-score'></span>
-		</div>
-		<div id='game-area'>
-			<!-- <div id='game-overlay'></div> -->
-			<div id='player'></div>
-			<div id='enemy0' class='enemy'></div>
-			<div id='enemy1' class='enemy'></div>
-			<div id='enemy2' class='enemy'></div>
-			<div id='enemy3' class='enemy'></div>
-		</div>
-		<div id='game-meta-footer'>
-			<span id='game-mode'></span>
-			<span id='game-area-size'></span>
-			<span id='game-randomiser-status'></span>
+		<div id='game-title-splash'><h1>evader</h1></div>
+		<div id='game' class='no-display'>
+			<div id='game-title'><h1>evader</h1></div>
+			<div id='game-body'>
+				<div id='game-meta-header'>
+					<span id='game-best-score'></span>
+					<span id='god-mode-status'></span>
+					<span id='game-last-score'></span>
+				</div>
+				<div id='game-area'>
+					<div id='game-overlay' class='invisible'></div>
+					<div id='player'></div>
+					<div id='enemy0' class='enemy'></div>
+					<div id='enemy1' class='enemy'></div>
+					<div id='enemy2' class='enemy'></div>
+					<div id='enemy3' class='enemy'></div>
+				</div>
+				<div id='game-meta-footer'>
+					<span id='game-mode'></span>
+					<span id='game-area-size'></span>
+					<span id='game-randomiser-status'></span>
+				</div>
+			</div>
 		</div>
 
-		<div id='game-comment'>
-		</div>
-		
+		<script type=text/javascript src='./lib/dependencies/iNoBounce.js'></script>
+		<script type=text/javascript src='./lib/dependencies/howler.min.js'></script>
+
 		<script type=text/javascript src='./lib/evader/index.js'></script>
 		<script type=text/javascript src='./lib/evader/config.js'></script>
 		<script type=text/javascript src='./lib/evader/utils.js'></script>
@@ -42,13 +47,8 @@
 		<script type=text/javascript src='./lib/evader/state.js'></script>
 		<script type=text/javascript src='./lib/evader/state.persistence.js'></script>
 		<script type=text/javascript src='./lib/evader/view.js'></script>
+		<script type=text/javascript src='./lib/evader/audio.js'></script>
 
-		<script type=text/javascript src='./lib/dependencies/iNoBounce.js'></script>
-
-		<script type=text/javascript>
-			// Initialise...
-			Evader.view.initView();
-		</script>
-
+		<script type=text/javascript src='./lib/init.js'></script>
 	</body>
 </html>

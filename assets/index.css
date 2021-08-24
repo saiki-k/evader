@@ -1,0 +1,428 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	position: relative;
+	color: #121212;
+	font-family: 'Fira Code', sans-serif;
+	background-color: #ededed;
+	margin: auto;
+	max-width: 450px;
+	font-size: 16px;
+	overscroll-behavior: none;
+}
+
+.no-display {
+	display: none;
+}
+
+#game-title {
+	margin: 0.5rem 0 3rem 0;
+}
+
+#game-title > h1 {
+	font-weight: 100;
+	text-decoration: overline;
+}
+
+#game-title-splash > h1 {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: fade-in 1s ease-out infinite alternate-reverse;
+}
+
+#game-title-splash > h1 {
+	font-weight: 100;
+	text-decoration: overline;
+}
+
+#game-meta-header,
+#game-meta-footer {
+	display: flex;
+	justify-content: space-between;
+	width: 450px;
+}
+
+#game-meta-footer {
+	margin-top: 2px;
+}
+
+.game-meta-left-text {
+	margin-left: 28px;
+}
+
+.game-meta-right-text {
+	margin-right: 28px;
+}
+
+#game-meta-header #game-best-score {
+	width: 150px;
+	display: inline-flex;
+	justify-content: flex-start;
+}
+
+#game-meta-header #god-mode-status {
+	display: inline-flex;
+}
+
+#game-meta-header #game-last-score {
+	width: 150px;
+	display: inline-flex;
+	justify-content: flex-end;
+}
+
+#game-meta-header #god-mode-status .sprite-godMode {
+	cursor: pointer;
+}
+
+#game-meta-footer #game-mode {
+	width: 150px;
+	display: inline-flex;
+	justify-content: flex-start;
+}
+
+#game-meta-footer #game-randomiser-status {
+	width: 150px;
+	display: inline-flex;
+	justify-content: flex-end;
+}
+
+#game-area {
+	position: relative;
+	clear: both;
+
+	width: 450px;
+	height: 450px;
+
+	border: 2px solid #121212;
+	border-radius: 4px;
+}
+
+#game-overlay {
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	z-index: 1;
+	width: 410px;
+	height: 410px;
+	top: 18px;
+	left: 18px;
+	opacity: 90%;
+	border-radius: 2px;
+	border: 1px solid #121212;
+	background-color: #ededed;
+	box-shadow: 1px 1px 20px 2px #999999;
+	animation: fade-in 0.5s linear;
+	animation-fill-mode: forwards;
+}
+
+#game-overlay.invisible {
+	animation: fade-out 0.5s linear;
+	animation-fill-mode: forwards;
+}
+
+#player {
+	background-color: #ff0000;
+	position: absolute;
+	box-shadow: 1px 1px 20px 2px #999999;
+	border-radius: 3px;
+	border: 2px solid #990000;
+	cursor: grab;
+
+	width: 40px;
+	height: 40px;
+	left: 205px;
+	top: 205px;
+}
+
+.enemy {
+	background-color: #0000ff;
+	position: absolute;
+	box-shadow: 1px 1px 20px 2px #999999;
+	border-radius: 3px;
+	border: 1px solid;
+
+	opacity: 80%;
+}
+
+#enemy0 {
+	width: 60px;
+	height: 50px;
+	left: 270px;
+	top: 60px;
+}
+
+#enemy1 {
+	width: 100px;
+	height: 20px;
+	left: 300px;
+	top: 330px;
+}
+
+#enemy2 {
+	width: 30px;
+	height: 60px;
+	left: 70px;
+	top: 320px;
+}
+
+#enemy3 {
+	width: 60px;
+	height: 60px;
+	left: 70px;
+	top: 70px;
+}
+
+#game-title {
+	opacity: 60%;
+}
+
+#game-meta-header,
+#game-meta-footer,
+#game-area {
+	opacity: 87%;
+}
+
+body.dark,
+body.no-display {
+	color: #ededed;
+	background-color: #121212;
+}
+
+body.dark #game-area {
+	border: 2px solid #ededed;
+	background-color: #121212;
+}
+
+body.dark #game-overlay {
+	border: 1px solid #ededed;
+	background-color: #121212;
+	box-shadow: 1px 1px 20px 2px #444444;
+	opacity: 90%;
+}
+
+body.dark #player {
+	box-shadow: 1px 1px 20px 2px #444444;
+}
+
+body.dark .enemy {
+	box-shadow: 1px 1px 20px 2px #444444;
+}
+
+.game-btn {
+	padding: 6px;
+	background: #ededed;
+	color: #121212;
+	text-transform: uppercase;
+	font-family: 'Fira Code', sans-serif;
+	font-weight: 700;
+	width: 50%;
+	border: none;
+	cursor: pointer;
+}
+
+body.dark .game-btn {
+	background: #121212;
+	color: #ededed;
+}
+
+/* .game-btn:hover:enabled {
+	box-shadow: 0 0.5em 0.5em -0.4em #888888;
+	transform: translateY(-0.25em);
+	outline: none;
+	border: 2px solid black;
+}
+
+.game-btn:active:enabled {
+	box-shadow: 0 0.5em 0.5em -0.4em #888888;
+	border: 2px solid black;
+	transform: translateY(-0.125em);
+}
+
+.game-btn:disabled,
+.game-btn[disabled] {
+	border: 2px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+} */
+
+/* Default Game Area */
+@media only screen and (min-width: 601px) {
+	body #game-body {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* Smaller Game Area */
+@media only screen and (max-width: 600px), only screen and (max-height: 600px) {
+	body {
+		max-width: 350px;
+		font-size: 12px;
+	}
+
+	#game-area {
+		width: 350px;
+		height: 350px;
+	}
+
+	#game-overlay {
+		width: 320px;
+		height: 320px;
+		top: 13px;
+		left: 13px;
+	}
+
+	#game-meta-header,
+	#game-meta-footer {
+		width: 350px;
+	}
+
+	.game-meta-left-text {
+		margin-left: 20px;
+	}
+
+	.game-meta-right-text {
+		margin-right: 20px;
+	}
+
+	.game-btn {
+		font-size: 12px;
+	}
+
+	#player {
+		width: 31.11px;
+		height: 31.11px;
+		left: 159.44px;
+		top: 159.44px;
+		border: 2px solid #990000;
+	}
+
+	#enemy0 {
+		width: 46.67px;
+		height: 38.89px;
+		left: 210px;
+		top: 46.67px;
+	}
+
+	#enemy1 {
+		width: 77.78px;
+		height: 15.56px;
+		left: 233.33px;
+		top: 256.67px;
+	}
+
+	#enemy2 {
+		width: 23.33px;
+		height: 46.67px;
+		left: 54.44px;
+		top: 248.89px;
+	}
+
+	#enemy3 {
+		width: 46.67px;
+		height: 46.67px;
+		left: 54.44px;
+		top: 54.44px;
+	}
+}
+
+@keyframes game-overlay-fadein {
+	from {
+		opacity: 0%;
+		visibility: hidden;
+	}
+	to {
+		opacity: 90%;
+		visibility: visible;
+	}
+}
+
+@keyframes game-overlay-fadeout {
+	from {
+		opacity: 90%;
+		visibility: visible;
+	}
+	to {
+		opacity: 0%;
+		visibility: hidden;
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		visibility: hidden;
+		opacity: 0;
+	}
+	12.5% {
+		opacity: 0.125;
+	}
+	25% {
+		opacity: 0.25;
+	}
+	37.5% {
+		opacity: 0.375;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	62.5% {
+		opacity: 0.625;
+	}
+	75% {
+		opacity: 0.75;
+	}
+	87.5% {
+		opacity: 0.875;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes fade-out {
+	100% {
+		visibility: hidden;
+		opacity: 0;
+	}
+	87.5% {
+		opacity: 0.125;
+	}
+	75% {
+		opacity: 0.25;
+	}
+	62.5% {
+		opacity: 0.375;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	37.5% {
+		opacity: 0.625;
+	}
+	25% {
+		opacity: 0.75;
+	}
+	12.5% {
+		opacity: 0.875;
+	}
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
