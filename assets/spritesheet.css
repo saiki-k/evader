@@ -2,6 +2,14 @@
 	margin: auto;
 }
 
+.sprite-title {
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	transform: scale(0.8) translate(-112.5%, -50%);
+	transform-origin: top right;
+}
+
 .sprite-meta {
 	margin: auto;
 	transform: scale(0.2778);
@@ -31,6 +39,10 @@
 		transform: scale(0.7778);
 	}
 
+	.sprite-title {
+		transform: scale(0.7) translate(-125%, -50%);
+	}
+
 	.sprite-meta {
 		transform: scale(0.2);
 	}
@@ -41,139 +53,139 @@
 	}
 }
 
+/* Programmatically triggered smaller game */
+body.smaller .sprite {
+	transform: scale(0.7778);
+}
+
+body.smaller .sprite-title {
+	transform: scale(0.7) translate(-125%, -50%);
+}
+
+body.smaller .sprite-meta {
+	transform: scale(0.2);
+}
+
+body.smaller .sprite-meta.sprite-center {
+	transform: scale(0.2) translate(-50%);
+	transform-origin: top left;
+}
+
+/* Sprites */
 .sprite-apprenticeMedal {
 	background-image: url(spritesheet.png);
 	background-position: 0px 0px;
 	width: 72px;
 	height: 72px;
 }
-
 .sprite-bronzeMedal {
 	background-image: url(spritesheet.png);
 	background-position: -82px 0px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-chequeredFlag {
+.sprite-broom {
 	background-image: url(spritesheet.png);
 	background-position: 0px -82px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-cloud {
+.sprite-chequeredFlag {
 	background-image: url(spritesheet.png);
 	background-position: -82px -82px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-distinctionMedal {
+.sprite-cloud {
 	background-image: url(spritesheet.png);
 	background-position: -164px 0px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-github {
+.sprite-extraordinaireMedal {
 	background-image: url(spritesheet.png);
 	background-position: -164px -82px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-godMode {
+.sprite-github {
 	background-image: url(spritesheet.png);
 	background-position: 0px -164px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-goldMedal {
+.sprite-godMode {
 	background-image: url(spritesheet.png);
 	background-position: -82px -164px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-highVolumeSpeaker {
+.sprite-goldMedal {
 	background-image: url(spritesheet.png);
 	background-position: -164px -164px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-indexFingerPointingDown {
+.sprite-highVolumeSpeaker {
 	background-image: url(spritesheet.png);
 	background-position: -246px 0px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-lowVolumeSpeaker {
+.sprite-indexFingerPointingDown {
 	background-image: url(spritesheet.png);
 	background-position: -246px -82px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-meditationMode {
+.sprite-lowVolumeSpeaker {
 	background-image: url(spritesheet.png);
 	background-position: -246px -164px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-mediumVolumeSpeaker {
+.sprite-meditationMode {
 	background-image: url(spritesheet.png);
 	background-position: 0px -246px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-mutedSpeaker {
+.sprite-mediumVolumeSpeaker {
 	background-image: url(spritesheet.png);
 	background-position: -82px -246px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-randomiser {
+.sprite-mutedSpeaker {
 	background-image: url(spritesheet.png);
 	background-position: -164px -246px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-silverMedal {
+.sprite-randomiser {
 	background-image: url(spritesheet.png);
 	background-position: -246px -246px;
 	width: 72px;
 	height: 72px;
 }
-
-.sprite-skullAndCrossbones {
+.sprite-silverMedal {
 	background-image: url(spritesheet.png);
 	background-position: -328px 0px;
 	width: 72px;
 	height: 72px;
 }
-
 .sprite-sprintMode {
 	background-image: url(spritesheet.png);
 	background-position: -328px -82px;
 	width: 72px;
 	height: 72px;
 }
-
 .sprite-sunBehindCloud {
 	background-image: url(spritesheet.png);
 	background-position: -328px -164px;
 	width: 72px;
 	height: 72px;
 }
-
 .sprite-victoryHand {
 	background-image: url(spritesheet.png);
 	background-position: -328px -246px;

@@ -26,26 +26,21 @@ body {
 	display: none;
 }
 
+.no-cursor {
+	cursor: none !important;
+}
+
 #game-title {
-	margin: 0.5rem 0 3rem 0;
+	position: relative;
+	margin: 1rem 0 6rem 0;
 }
 
-#game-title > h1 {
-	font-weight: 100;
-	text-decoration: overline;
-}
-
-#game-title-splash > h1 {
+#game-title-splash {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	animation: fade-in 1s ease-out infinite alternate-reverse;
-}
-
-#game-title-splash > h1 {
-	font-weight: 100;
-	text-decoration: overline;
 }
 
 #game-meta-header,
@@ -93,6 +88,10 @@ body {
 	justify-content: flex-start;
 }
 
+#game-meta-footer #game-area-size.toggleable {
+	cursor: pointer;
+}
+
 #game-meta-footer #game-randomiser-status {
 	width: 150px;
 	display: inline-flex;
@@ -119,7 +118,6 @@ body {
 	height: 410px;
 	top: 18px;
 	left: 18px;
-	opacity: 90%;
 	border-radius: 2px;
 	border: 1px solid #121212;
 	background-color: #ededed;
@@ -136,15 +134,19 @@ body {
 #player {
 	background-color: #ff0000;
 	position: absolute;
-	box-shadow: 1px 1px 20px 2px #999999;
+	box-shadow: 1px 1px 20px 0px #999999;
 	border-radius: 3px;
 	border: 2px solid #990000;
-	cursor: grab;
+	cursor: pointer;
 
 	width: 40px;
 	height: 40px;
 	left: 205px;
 	top: 205px;
+}
+
+#player.hold {
+	box-shadow: 1px 1px 20px 4px #999999;
 }
 
 .enemy {
@@ -155,6 +157,7 @@ body {
 	border: 1px solid;
 
 	opacity: 80%;
+	/* transition: all 5ms linear; */
 }
 
 #enemy0 {
@@ -196,7 +199,7 @@ body {
 }
 
 body.dark,
-body.no-display {
+body.loading {
 	color: #ededed;
 	background-color: #121212;
 }
@@ -214,6 +217,10 @@ body.dark #game-overlay {
 }
 
 body.dark #player {
+	box-shadow: 1px 1px 20px 0px #444444;
+}
+
+body.dark #player.hold {
 	box-shadow: 1px 1px 20px 2px #444444;
 }
 
@@ -341,28 +348,78 @@ body.dark .game-btn {
 	}
 }
 
-@keyframes game-overlay-fadein {
-	from {
-		opacity: 0%;
-		visibility: hidden;
-	}
-	to {
-		opacity: 90%;
-		visibility: visible;
-	}
+/* Programmatically triggered smaller game */
+body.smaller {
+	max-width: 350px;
+	font-size: 12px;
 }
 
-@keyframes game-overlay-fadeout {
-	from {
-		opacity: 90%;
-		visibility: visible;
-	}
-	to {
-		opacity: 0%;
-		visibility: hidden;
-	}
+body.smaller #game-area {
+	width: 350px;
+	height: 350px;
 }
 
+body.smaller #game-overlay {
+	width: 320px;
+	height: 320px;
+	top: 13px;
+	left: 13px;
+}
+
+body.smaller #game-meta-header,
+body.smaller #game-meta-footer {
+	width: 350px;
+}
+
+body.smaller .game-meta-left-text {
+	margin-left: 20px;
+}
+
+body.smaller .game-meta-right-text {
+	margin-right: 20px;
+}
+
+body.smaller .game-btn {
+	font-size: 12px;
+}
+
+body.smaller #player {
+	width: 31.11px;
+	height: 31.11px;
+	left: 159.44px;
+	top: 159.44px;
+	border: 2px solid #990000;
+}
+
+body.smaller #enemy0 {
+	width: 46.67px;
+	height: 38.89px;
+	left: 210px;
+	top: 46.67px;
+}
+
+body.smaller #enemy1 {
+	width: 77.78px;
+	height: 15.56px;
+	left: 233.33px;
+	top: 256.67px;
+}
+
+body.smaller #enemy2 {
+	width: 23.33px;
+	height: 46.67px;
+	left: 54.44px;
+	top: 248.89px;
+}
+
+body.smaller #enemy3 {
+	width: 46.67px;
+	height: 46.67px;
+	left: 54.44px;
+	top: 54.44px;
+}
+
+/* Animations */
 @keyframes fade-in {
 	0% {
 		visibility: hidden;
@@ -390,7 +447,7 @@ body.dark .game-btn {
 		opacity: 0.875;
 	}
 	100% {
-		opacity: 1;
+		opacity: 0.9;
 		visibility: visible;
 	}
 }
@@ -422,7 +479,7 @@ body.dark .game-btn {
 		opacity: 0.875;
 	}
 	0% {
-		opacity: 1;
+		opacity: 0.9;
 		visibility: visible;
 	}
 }
