@@ -11,7 +11,10 @@
 	</head>
 
 	<body class='dark loading'>
-		<div id='game-title-splash'><h1>evader</h1> <span id='splash-message'>loading content...<span></div>
+		<div id='game-title-splash'>
+			<h1>evader</h1>
+			<span id='splash-message' class='pulsate'>loading content...&nbsp;&nbsp;<span>
+		</div>
 		<div id='game' class='no-display'>
 			<div id='game-title'>
 				<h1>evader</h1>
@@ -26,7 +29,14 @@
 					<span id='game-last-score'></span>
 				</div>
 				<div id='game-area'>
-					<div id='game-overlay' class='invisible'></div>
+					<div id='game-overlay' class='invisible'>
+						<button id='play-btn' class='game-btn'></button>
+						<button id='game-mode-btn' class='game-btn'></button>
+						<button id='randomiser-btn' class='game-btn'></button>
+						<button id='dark-mode-btn' class='game-btn'></button>
+						<button id='clear-stats-btn' class='game-btn'></button>
+						<button id='volume-btn' class='game-btn'></button>
+					</div>
 					<div id='player'></div>
 					<div id='enemy0' class='enemy'></div>
 					<div id='enemy1' class='enemy'></div>

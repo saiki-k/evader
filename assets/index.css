@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-user-drag: none;
 }
 
@@ -14,7 +15,7 @@ html {
 body {
 	position: relative;
 	color: #121212;
-	font-family: 'Fira Code', sans-serif;
+	font-family: 'Fira Code', monospace;
 	background-color: #ededed;
 	margin: auto;
 	max-width: 450px;
@@ -35,11 +36,33 @@ body {
 	margin: 1rem 0 6rem 0;
 }
 
+#game-title > h1 {
+	color: #ededed;
+	text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%),
+		0 4px 0 hsl(174, 5%, 66%), 0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%), 0 7px 0 hsl(174, 5%, 61%),
+		0 8px 0 hsl(174, 5%, 60%), 0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2),
+		0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2),
+		0 20px 20px rgba(0, 0, 0, 0.3);
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* #game-title-splash is designed to always be in dark mode... */
+body.dark #game-title > h1,
+#game-title-splash > h1 {
+	text-shadow: 0 1px 0 #aeb7b6, 0 2px 0 #a1aaaa, 0 3px 0 #949e9e, 0 4px 0 #899594, 0 5px 0 #84908e, 0 6px 0 #7e8b8a,
+		0 7px 0 #7c8988, 0 8px 0 #798685, 0 0 5px #1a1a1a, 0 1px 3px #003600, 0 3px 5px #003600, 0 5px 10px #003600,
+		0 10px 10px #003600, 0 20px 20px #1a1a1a;
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.2));
+}
+
 #game-title-splash {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.pulsate {
 	animation: fade-in 1s ease-out infinite alternate-reverse;
 }
 
@@ -157,7 +180,6 @@ body {
 	border: 1px solid;
 
 	opacity: 80%;
-	/* transition: all 5ms linear; */
 }
 
 #enemy0 {
@@ -198,6 +220,36 @@ body {
 	opacity: 87%;
 }
 
+.game-btn {
+	position: relative;
+	padding: 6px;
+	width: 50%;
+	border: none;
+}
+
+.game-btn > span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	font-family: 'Fira Code', sans-serif;
+	font-weight: 900;
+	padding: 8px;
+	border-radius: 8px;
+	width: 75%;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.5s, opacity 0.5s linear;
+	cursor: pointer;
+}
+
+.game-btn,
+.game-btn > span {
+	background: #ededed;
+	color: #121212;
+}
+
 body.dark,
 body.loading {
 	color: #ededed;
@@ -228,46 +280,22 @@ body.dark .enemy {
 	box-shadow: 1px 1px 20px 2px #444444;
 }
 
-.game-btn {
-	padding: 6px;
-	background: #ededed;
-	color: #121212;
-	text-transform: uppercase;
-	font-family: 'Fira Code', sans-serif;
-	font-weight: 700;
-	width: 50%;
-	border: none;
-	cursor: pointer;
-}
-
-body.dark .game-btn {
+body.dark .game-btn,
+body.dark .game-btn > span {
 	background: #121212;
 	color: #ededed;
 }
 
-/* .game-btn:hover:enabled {
-	box-shadow: 0 0.5em 0.5em -0.4em #888888;
-	transform: translateY(-0.25em);
-	outline: none;
-	border: 2px solid black;
+body:not(.smaller) #game-body {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
-
-.game-btn:active:enabled {
-	box-shadow: 0 0.5em 0.5em -0.4em #888888;
-	border: 2px solid black;
-	transform: translateY(-0.125em);
-}
-
-.game-btn:disabled,
-.game-btn[disabled] {
-	border: 2px solid #999999;
-	background-color: #cccccc;
-	color: #666666;
-} */
 
 /* Default Game Area */
-@media only screen and (min-width: 601px) {
-	body #game-body {
+@media only screen and (min-width: 601px), only screen and (min-height: 600px) {
+	body.smaller #game-body {
 		position: fixed;
 		top: 50%;
 		left: 50%;
@@ -276,80 +304,7 @@ body.dark .game-btn {
 }
 
 /* Smaller Game Area */
-@media only screen and (max-width: 600px), only screen and (max-height: 600px) {
-	body {
-		max-width: 350px;
-		font-size: 12px;
-	}
-
-	#game-area {
-		width: 350px;
-		height: 350px;
-	}
-
-	#game-overlay {
-		width: 320px;
-		height: 320px;
-		top: 13px;
-		left: 13px;
-	}
-
-	#game-meta-header,
-	#game-meta-footer {
-		width: 350px;
-	}
-
-	.game-meta-left-text {
-		margin-left: 20px;
-	}
-
-	.game-meta-right-text {
-		margin-right: 20px;
-	}
-
-	.game-btn {
-		font-size: 12px;
-	}
-
-	#player {
-		width: 31.11px;
-		height: 31.11px;
-		left: 159.44px;
-		top: 159.44px;
-		border: 2px solid #990000;
-	}
-
-	#enemy0 {
-		width: 46.67px;
-		height: 38.89px;
-		left: 210px;
-		top: 46.67px;
-	}
-
-	#enemy1 {
-		width: 77.78px;
-		height: 15.56px;
-		left: 233.33px;
-		top: 256.67px;
-	}
-
-	#enemy2 {
-		width: 23.33px;
-		height: 46.67px;
-		left: 54.44px;
-		top: 248.89px;
-	}
-
-	#enemy3 {
-		width: 46.67px;
-		height: 46.67px;
-		left: 54.44px;
-		top: 54.44px;
-	}
-}
-
-/* Programmatically triggered smaller game */
-body.smaller {
+body.smaller:not(.loading) {
 	max-width: 350px;
 	font-size: 12px;
 }
@@ -379,7 +334,7 @@ body.smaller .game-meta-right-text {
 	margin-right: 20px;
 }
 
-body.smaller .game-btn {
+body.smaller .game-btn > span {
 	font-size: 12px;
 }
 
@@ -419,7 +374,7 @@ body.smaller #enemy3 {
 	top: 54.44px;
 }
 
-/* Animations */
+/* ANIMATIONS */
 @keyframes fade-in {
 	0% {
 		visibility: hidden;
@@ -483,3 +438,146 @@ body.smaller #enemy3 {
 		visibility: visible;
 	}
 }
+
+/* SPRITE STYLES */
+.sprite {
+	margin: auto;
+}
+
+.sprite-title {
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	transform-origin: top right;
+}
+
+.sprite-title.sprite-github {
+	transform: scale(0.8) translate(-112.5%, -50%);
+}
+
+.sprite-github {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.3));
+}
+
+a:hover > .sprite-github,
+a:focus > .sprite-github,
+a:focus-visible > .sprite-github {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.6));
+}
+
+.sprite-meta {
+	margin: auto;
+	transform: scale(0.2778);
+	position: absolute;
+}
+
+.sprite-meta.sprite-left {
+	transform-origin: top left;
+}
+
+.sprite-meta.sprite-center {
+	transform: scale(0.2778) translate(-50%);
+	transform-origin: top left;
+}
+
+.sprite-meta.sprite-right {
+	transform-origin: top right;
+}
+
+.sprite-grayscale {
+	filter: grayscale(100%);
+}
+
+.game-btn.active > span {
+	visibility: visible;
+	opacity: 0.75;
+}
+
+.game-btn.active > .sprite {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.8));
+	transform: translateY(-0.25em);
+}
+
+.game-btn.active > .sprite.sprite-grayscale {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.8)) grayscale(100%);
+}
+
+.game-btn:not(.active):hover > .sprite,
+.game-btn:not(.active):focus > .sprite,
+.game-btn:not(.active):focus-visible > .sprite {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.4));
+	/* transform: translateY(-0.25em); */
+	outline: none;
+}
+
+.game-btn:not(.active):hover > .sprite.sprite-grayscale,
+.game-btn:not(.active):focus > .sprite.sprite-grayscale,
+.game-btn:not(.active):focus-visible > .sprite.sprite-grayscale {
+	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.4)) grayscale(100%);
+}
+
+.game-btn:focus-visible {
+	outline: none;
+}
+
+.game-btn:focus-visible > span {
+	border: 1px solid;
+}
+
+body.dark .sprite-github {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.3));
+}
+
+body.dark a:hover > .sprite-github,
+body.dark a:focus > .sprite-github,
+body.dark a:focus-visible > .sprite-github {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.6));
+}
+
+body.dark .game-btn.active > .sprite {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.8));
+}
+
+body.dark .game-btn.active > .sprite.sprite-grayscale {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.8)) grayscale(100%);
+}
+
+body.dark .game-btn:not(.active):hover > .sprite,
+body.dark .game-btn:not(.active):focus > .sprite,
+body.dark .game-btn:not(.active):focus-visible > .sprite {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.4));
+}
+
+body.dark .game-btn:not(.active):hover > .sprite.sprite-grayscale,
+body.dark .game-btn:not(.active):focus > .sprite.sprite-grayscale,
+body.dark .game-btn:not(.active):focus-visible > .sprite.sprite-grayscale {
+	filter: drop-shadow(0px 3px 10px rgba(255, 255, 255, 0.4)) grayscale(100%);
+}
+
+/* Smaller Game Area */
+body.smaller .sprite {
+	transform: scale(0.7778);
+}
+
+body.smaller .game-btn.active > .sprite {
+	transform: scale(0.7778) translateY(-0.25em);
+}
+
+body.smaller .sprite-title.sprite-github {
+	transform: scale(0.6) translate(-150%, -50%);
+}
+
+body.smaller .sprite-meta {
+	transform: scale(0.2);
+}
+
+body.smaller .sprite-meta.sprite-center {
+	transform: scale(0.2) translate(-50%);
+	transform-origin: top left;
+}
+
+/* body.smaller .game-btn:not(.active):hover > .sprite,
+body.smaller .game-btn:not(.active):focus > .sprite,
+body.smaller .game-btn:not(.active):focus-visible > .sprite {
+	transform: scale(0.7778) translateY(-0.25em);
+} */

@@ -1,77 +1,3 @@
-.sprite {
-	margin: auto;
-}
-
-.sprite-title {
-	position: absolute;
-	top: 50%;
-	left: 100%;
-	transform: scale(0.8) translate(-112.5%, -50%);
-	transform-origin: top right;
-}
-
-.sprite-meta {
-	margin: auto;
-	transform: scale(0.2778);
-	position: absolute;
-}
-
-.sprite-meta.sprite-left {
-	transform-origin: top left;
-}
-
-.sprite-meta.sprite-center {
-	transform: scale(0.2778) translate(-50%);
-	transform-origin: top left;
-}
-
-.sprite-meta.sprite-right {
-	transform-origin: top right;
-}
-
-.sprite-grayscale {
-	filter: grayscale(100%);
-}
-
-/* Smaller Game Area */
-@media only screen and (max-width: 600px) {
-	.sprite {
-		transform: scale(0.7778);
-	}
-
-	.sprite-title {
-		transform: scale(0.7) translate(-125%, -50%);
-	}
-
-	.sprite-meta {
-		transform: scale(0.2);
-	}
-
-	.sprite-meta.sprite-center {
-		transform: scale(0.2) translate(-50%);
-		transform-origin: top left;
-	}
-}
-
-/* Programmatically triggered smaller game */
-body.smaller .sprite {
-	transform: scale(0.7778);
-}
-
-body.smaller .sprite-title {
-	transform: scale(0.7) translate(-125%, -50%);
-}
-
-body.smaller .sprite-meta {
-	transform: scale(0.2);
-}
-
-body.smaller .sprite-meta.sprite-center {
-	transform: scale(0.2) translate(-50%);
-	transform-origin: top left;
-}
-
-/* Sprites */
 .sprite-apprenticeMedal {
 	background-image: url(spritesheet.png);
 	background-position: 0px 0px;
@@ -156,7 +82,7 @@ body.smaller .sprite-meta.sprite-center {
 	width: 72px;
 	height: 72px;
 }
-.sprite-mutedSpeaker {
+.sprite-mutedVolumeSpeaker {
 	background-image: url(spritesheet.png);
 	background-position: -164px -246px;
 	width: 72px;
