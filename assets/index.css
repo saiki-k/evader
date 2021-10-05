@@ -2,9 +2,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	outline: none;
 	user-select: none;
 	-webkit-user-select: none;
+	-webkit-touch-callout: none;
 	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -233,7 +236,7 @@ body.dark #game-title > h1,
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-transform: uppercase;
-	font-family: 'Fira Code', sans-serif;
+	font-family: 'Fira Code', monospace;
 	font-weight: 900;
 	padding: 8px;
 	border-radius: 8px;
@@ -335,7 +338,8 @@ body.smaller .game-meta-right-text {
 }
 
 body.smaller .game-btn > span {
-	font-size: 12px;
+	font-size: 11px;
+	padding: 6px;
 }
 
 body.smaller #player {
@@ -506,18 +510,12 @@ a:focus-visible > .sprite-github {
 .game-btn:not(.active):focus > .sprite,
 .game-btn:not(.active):focus-visible > .sprite {
 	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.4));
-	/* transform: translateY(-0.25em); */
-	outline: none;
 }
 
 .game-btn:not(.active):hover > .sprite.sprite-grayscale,
 .game-btn:not(.active):focus > .sprite.sprite-grayscale,
 .game-btn:not(.active):focus-visible > .sprite.sprite-grayscale {
 	filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.4)) grayscale(100%);
-}
-
-.game-btn:focus-visible {
-	outline: none;
 }
 
 .game-btn:focus-visible > span {
@@ -575,9 +573,3 @@ body.smaller .sprite-meta.sprite-center {
 	transform: scale(0.2) translate(-50%);
 	transform-origin: top left;
 }
-
-/* body.smaller .game-btn:not(.active):hover > .sprite,
-body.smaller .game-btn:not(.active):focus > .sprite,
-body.smaller .game-btn:not(.active):focus-visible > .sprite {
-	transform: scale(0.7778) translateY(-0.25em);
-} */
