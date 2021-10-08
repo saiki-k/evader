@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "serve ./src/",
 		"build": "gulp",
-		"start:build": "npm run build && serve ./dist/"
+		"serve:build": "serve ./build/",
+		"start:build": "npm run build && npm run serve:build"
 	},
 	"repository": {
 		"type": "git",

@@ -11,7 +11,7 @@ const cleanCSS = require('gulp-clean-css');
 const htmlreplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
 
-const destDirectory = './dist/';
+const destDirectory = './build/';
 const destAssetsDirectory = path.join(destDirectory, 'assets');
 
 function clean() {
