@@ -11,9 +11,12 @@ const cleanCSS = require('gulp-clean-css');
 const htmlreplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
 const ghPages = require('gulp-gh-pages');
+const file = require('gulp-file');
 
 const destDirectory = './build/';
 const destAssetsDirectory = path.join(destDirectory, 'assets');
+
+const CNAME_RECORD = 'evader.red';
 
 function clean() {
 	return del([destDirectory], { force: true });
@@ -71,7 +74,7 @@ function html() {
 }
 
 function deploy() {
-	return src(`${destDirectory}**/*`).pipe(ghPages());
+	return src(`${destDirectory}**/*`).pipe(file('CNAME', CNAME_RECORD)).pipe(dest(destDirectory)).pipe(ghPages());
 }
 
 exports.default = series(clean, assets, styles, scripts, html);
