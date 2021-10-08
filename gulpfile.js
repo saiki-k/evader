@@ -10,6 +10,7 @@ const uglify = require('gulp-uglify');
 const cleanCSS = require('gulp-clean-css');
 const htmlreplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
+const ghPages = require('gulp-gh-pages');
 
 const destDirectory = './build/';
 const destAssetsDirectory = path.join(destDirectory, 'assets');
@@ -69,4 +70,9 @@ function html() {
 		.pipe(dest(destDirectory));
 }
 
+function deploy() {
+	return src(`${destDirectory}**/*`).pipe(ghPages());
+}
+
 exports.default = series(clean, assets, styles, scripts, html);
+exports.deploy = series(clean, assets, styles, scripts, html, deploy);
