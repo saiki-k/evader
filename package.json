@@ -13,8 +13,7 @@
 		"type": "git",
 		"url": "git+https://github.com/fatman-/evader.git"
 	},
-	"keywords": [],
-	"author": "",
+	"author": "Sai Kishore Komanduri <saikishore.bits@gmail.com>",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/fatman-/evader/issues"
