@@ -65,6 +65,10 @@ body.dark #game-title > h1,
 	transform: translate(-50%, -50%);
 }
 
+#game-title-splash #splash-message {
+	font-size: 14px;
+}
+
 .pulsate {
 	animation: fade-in 1s ease-out infinite alternate-reverse;
 }
@@ -289,15 +293,16 @@ body.dark .game-btn > span {
 	color: #ededed;
 }
 
-body:not(.smaller) #game-body {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+/* Center game areas, only when there is enough screen estate */
+@media only screen and (min-height: 801px) {
+	body:not(.smaller) #game-body {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
-
-/* Default Game Area */
-@media only screen and (min-width: 601px), only screen and (min-height: 600px) {
+@media only screen and (min-height: 701px) {
 	body.smaller #game-body {
 		position: fixed;
 		top: 50%;
