@@ -193,7 +193,9 @@ Evader.extend(
 					Evader.game.reset();
 				}
 				const gameAreaIsAlreadySmaller = document.body.classList.contains('smaller');
-				const newGameAreaIsSmaller = window.matchMedia('(max-width: 600px), (max-height: 600px)').matches;
+				const newGameAreaIsSmaller = window.matchMedia(
+					Evader.config.entity.smallerGameArea.mediaQueryString
+				).matches;
 
 				if (!gameAreaIsAlreadySmaller && newGameAreaIsSmaller) {
 					document.body.classList.add('smaller');
@@ -213,7 +215,9 @@ Evader.extend(
 					return;
 				}
 
-				const toggleIsNotPossible = window.matchMedia('(max-width: 600px), (max-height: 600px)').matches;
+				const toggleIsNotPossible = window.matchMedia(
+					Evader.config.entity.smallerGameArea.mediaQueryString
+				).matches;
 				if (toggleIsNotPossible) {
 					return;
 				}

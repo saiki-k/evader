@@ -80,6 +80,7 @@ Evader.extend('config', {
 			},
 
 			smallerGameArea: {
+				mediaQueryString: '(max-width: 599px), (max-height: 699px)',
 				gameAreaDimensions: '(350px)²',
 				playerDimensions: { width: 31.11, height: 31.11 },
 				enemyDimensions: {

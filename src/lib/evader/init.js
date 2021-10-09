@@ -22,7 +22,7 @@ Evader.extend(
 
 		return {
 			run: function () {
-				if (window.matchMedia('(max-width: 600px), (max-height: 600px)').matches) {
+				if (window.matchMedia(Evader.config.entity.smallerGameArea.mediaQueryString).matches) {
 					document.body.classList.add('smaller');
 				} else {
 					document.getElementById('game-area-size').classList.add('toggleable');
