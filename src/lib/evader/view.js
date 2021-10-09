@@ -193,19 +193,15 @@ Evader.extend(
 					Evader.game.reset();
 				}
 				const gameAreaIsAlreadySmaller = document.body.classList.contains('smaller');
-				const newGameAreaIsSmaller = window.matchMedia(
+				const newGameAreaCanOnlyBeSmaller = window.matchMedia(
 					Evader.config.entity.smallerGameArea.mediaQueryString
 				).matches;
 
-				if (!gameAreaIsAlreadySmaller && newGameAreaIsSmaller) {
+				if (!gameAreaIsAlreadySmaller && newGameAreaCanOnlyBeSmaller) {
 					document.body.classList.add('smaller');
 				}
 
-				if (gameAreaIsAlreadySmaller && !newGameAreaIsSmaller) {
-					document.body.classList.remove('smaller');
-				}
-
-				elements.meta.gameAreaSize.classList[newGameAreaIsSmaller ? 'remove' : 'add']('toggleable');
+				elements.meta.gameAreaSize.classList[newGameAreaCanOnlyBeSmaller ? 'remove' : 'add']('toggleable');
 			},
 
 			toggleGameAreaSize(e) {
