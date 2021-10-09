@@ -12,11 +12,10 @@ const htmlreplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
 const ghPages = require('gulp-gh-pages');
 const file = require('gulp-file');
+const gtag = require('gulp-gtag');
 
-const destDirectory = './build/';
+const destDirectory = './build';
 const destAssetsDirectory = path.join(destDirectory, 'assets');
-
-const CNAME_RECORD = 'evader.red';
 
 function clean() {
 	return del([destDirectory], { force: true });
@@ -75,7 +74,19 @@ function html() {
 }
 
 function deploy() {
-	return src(`${destDirectory}**/*`).pipe(file('CNAME', CNAME_RECORD)).pipe(dest(destDirectory)).pipe(ghPages());
+	const CNAME_RECORD = 'evader.red';
+	const GOOGLE_ANALYTICS_GTAG = 'G-4M7D55BJ47';
+
+	const addGoogleAnalytics = src(`${destDirectory}/index.html`)
+		.pipe(gtag({ uid: GOOGLE_ANALYTICS_GTAG, minify: true }))
+		.pipe(dest(destDirectory));
+
+	const publishToGitHubPages = src(`${destDirectory}/**/*`)
+		.pipe(file('CNAME', CNAME_RECORD))
+		.pipe(dest(destDirectory))
+		.pipe(ghPages());
+
+	return merge(addGoogleAnalytics, publishToGitHubPages);
 }
 
 exports.default = series(clean, assets, styles, scripts, html);
