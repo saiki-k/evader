@@ -23,10 +23,11 @@ function clean() {
 }
 
 function assets() {
-	const generalAssetsTask = src('./src/assets/**/*.{ico,png}').pipe(dest(destAssetsDirectory));
-	const audioAssetsTask = src('./src/assets/audio/**/*.{webm,mp3}').pipe(dest(`${destAssetsDirectory}/audio`));
+	const addGeneralAssets = src('./src/assets/**/*.{ico,png}').pipe(dest(destAssetsDirectory));
+	const addAudioAssets = src('./src/assets/audio/**/*.{webm,mp3}').pipe(dest(`${destAssetsDirectory}/audio`));
+	const addFontAssets = src('./src/assets/fonts/**/*.{woff,woff2}').pipe(dest(`${destAssetsDirectory}/fonts`));
 
-	return merge(generalAssetsTask, audioAssetsTask);
+	return merge(addGeneralAssets, addAudioAssets, addFontAssets);
 }
 
 function styles() {
