@@ -237,6 +237,14 @@ Evader.extend(
 					}
 				}
 			}),
+
+			handleBodyClassMutations() {
+				eventHandlers.bodyClassMutationObserver.observe(document.body, {
+					attributes: true,
+					attributeFilter: ['class'],
+					attributeOldValue: true,
+				});
+			},
 		};
 
 		const eventRegister = {
@@ -393,17 +401,13 @@ Evader.extend(
 					playerMove,
 					playerRelease,
 				} = eventRegister;
-				const { bodyClassMutationObserver } = eventHandlers;
+				const { handleBodyClassMutations } = eventHandlers;
 				if (gameState.updateType === 'INIT') {
 					registerEvents(gameOverlayButtons);
 					registerEvents(godModeToggle);
 					registerEvents(windowResize);
 					registerEvents(gameAreaResizeToggle);
-					bodyClassMutationObserver.observe(document.body, {
-						attributes: true,
-						attributeFilter: ['class'],
-						attributeOldValue: true,
-					});
+					handleBodyClassMutations();
 				}
 				if (gameState.updateType === 'GAME_INIT') {
 					registerEvents(playerHold);
@@ -426,6 +430,12 @@ Evader.extend(
 				} = gameState;
 
 				clearTimeout(gameLoopIntervalId);
+
+				// Deactivate all game overlay buttons
+				Object.keys(elements.gameOverlayButtons).forEach((key) => {
+					const otherButtonElement = elements.gameOverlayButtons[key];
+					otherButtonElement.classList.remove('active');
+				});
 
 				const { unregisterEvents, playerHold, playerMove, playerRelease } = eventRegister;
 				unregisterEvents(playerHold);

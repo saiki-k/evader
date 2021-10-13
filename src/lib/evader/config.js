@@ -2,7 +2,6 @@ Evader.extend('config', {
 	game: (function () {
 		const getGameLoopIntervals = (gameMode, gameTicksPerInterval = 100) => {
 			const gameModeIntervalTimesMap = {
-				// sprint: [80, 70, 60, 50, 40, 30],
 				sprint: [80, 60, 40, 30],
 				meditation: [90, 80, 70, 60, 50, 50, 50, 50, 50, 50, 40],
 			};
