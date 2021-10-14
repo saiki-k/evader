@@ -9,7 +9,7 @@
 		"serve:build": "serve ./build/",
 		"start:build": "npm run build && npm run serve:build",
 		"postversion": "git push && git push --tags",
-		"deploy": "gulp prepareDeploy && gh-pages -d build"
+		"deploy": "gulp deploy"
 	},
 	"repository": {
 		"type": "git",
