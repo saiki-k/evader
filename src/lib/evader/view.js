@@ -13,6 +13,10 @@ Evader.extend(
 			game: { getMedalType },
 		} = Evader.utils;
 
+		/* NOTE
+		 **
+		 ** We maintain an elements object to prevent repetitive DOM lookups.
+		 */
 		const elements = {
 			gameOptions: {
 				godModeSwitch: document.getElementById('god-mode-status'),
@@ -99,18 +103,18 @@ Evader.extend(
 				correspondingButtonEventHandler,
 				options = { shouldDeactivateButtonAfterClick: false }
 			) {
-				const activateButtonElement = (buttonElement, playOptionSelectAudio = false) => {
-					if (playOptionSelectAudio) {
-						Evader.audio.play('optionSelect');
+				const activateButtonElement = (buttonElement, playOptionSelectionAudio = false) => {
+					if (playOptionSelectionAudio) {
+						Evader.audio.play('gameOptionSelect');
 					}
 					buttonElement.classList.add('active');
 				};
 
-				const deactivateButtonElement = (buttonElement, playOptionSelectAudio = false) => {
+				const deactivateButtonElement = (buttonElement, playOptionSelectionAudio = false) => {
 					buttonElement.classList.remove('active');
 					buttonElement.blur();
-					if (playOptionSelectAudio) {
-						Evader.audio.play('optionSelect');
+					if (playOptionSelectionAudio) {
+						Evader.audio.play('gameOptionDeselect');
 					}
 				};
 
@@ -131,18 +135,14 @@ Evader.extend(
 					const buttonIsNotActive = !buttonElement.classList.contains('active');
 
 					if (buttonIsNotActive) {
-						return activateButtonElement(buttonElement, (playOptionSelectAudio = true));
+						return activateButtonElement(buttonElement, (playOptionSelectionAudio = true));
 					}
 					const eventTargetIsNotButtonSpan = e.target.nodeName !== 'SPAN';
 					if (eventTargetIsNotButtonSpan) {
-						return deactivateButtonElement(buttonElement, (playOptionSelectAudio = true));
+						return deactivateButtonElement(buttonElement, (playOptionSelectionAudio = true));
 					}
 
 					correspondingButtonEventHandler();
-					if (options.audioOnClick) {
-						Evader.audio.play(options.audioOnClick);
-					}
-
 					if (options.shouldDeactivateButtonAfterClick) {
 						return deactivateButtonElement(buttonElement);
 					}
@@ -277,25 +277,21 @@ Evader.extend(
 							}
 							Evader.game.init();
 						},
-						{ shouldDeactivateButtonAfterClick: true, audioOnClick: 'gameStartTone' }
+						{ shouldDeactivateButtonAfterClick: true }
 					),
 				},
 				{
 					target: elements.gameOverlayButtons.gameModeBtn,
 					events: ['click'],
-					handler: eventHandlers.createGameOverlayButtonHandler(
-						'gameModeBtn',
-						() => Evader.game.options.changeGameMode(),
-						{ audioOnClick: 'optionToggle' }
+					handler: eventHandlers.createGameOverlayButtonHandler('gameModeBtn', () =>
+						Evader.game.options.changeGameMode()
 					),
 				},
 				{
 					target: elements.gameOverlayButtons.randomiserBtn,
 					events: ['click'],
-					handler: eventHandlers.createGameOverlayButtonHandler(
-						'randomiserBtn',
-						() => Evader.game.options.toggleRandomiser(),
-						{ audioOnClick: 'optionToggle' }
+					handler: eventHandlers.createGameOverlayButtonHandler('randomiserBtn', () =>
+						Evader.game.options.toggleRandomiser()
 					),
 				},
 				{
@@ -304,25 +300,21 @@ Evader.extend(
 					handler: eventHandlers.createGameOverlayButtonHandler(
 						'clearStatsBtn',
 						() => Evader.game.options.clearPlayerStats(),
-						{ shouldDeactivateButtonAfterClick: true, audioOnClick: 'clearStatsTone' }
+						{ shouldDeactivateButtonAfterClick: true }
 					),
 				},
 				{
 					target: elements.gameOverlayButtons.darkModeBtn,
 					events: ['click'],
-					handler: eventHandlers.createGameOverlayButtonHandler(
-						'darkModeBtn',
-						() => Evader.game.options.toggleDarkMode(),
-						{ audioOnClick: 'optionToggle' }
+					handler: eventHandlers.createGameOverlayButtonHandler('darkModeBtn', () =>
+						Evader.game.options.toggleDarkMode()
 					),
 				},
 				{
 					target: elements.gameOverlayButtons.volumeBtn,
 					events: ['click'],
-					handler: eventHandlers.createGameOverlayButtonHandler(
-						'volumeBtn',
-						() => Evader.game.options.toggleVolume(),
-						{ audioOnClick: 'optionToggle' }
+					handler: eventHandlers.createGameOverlayButtonHandler('volumeBtn', () =>
+						Evader.game.options.toggleVolume()
 					),
 				},
 			],
@@ -451,7 +443,7 @@ Evader.extend(
 					'GAME_LOOP_UPDATE',
 					'GAME_OVER',
 					'OPTIONS_CLEAR_PLAYER_STATS',
-					'OPTIONS_DARK_THEME_TOGGLE',
+					'OPTIONS_DARK_MODE_TOGGLE',
 					'OPTIONS_GAME_MODE_CHANGE',
 					'OPTIONS_GAME_RANDOMISER_TOGGLE',
 					'OPTIONS_GOD_MODE_TOGGLE',
@@ -570,7 +562,7 @@ Evader.extend(
 					renderRunningScoreMeta(elapsedTime);
 				}
 
-				if (updateType === 'OPTIONS_DARK_THEME_TOGGLE') {
+				if (updateType === 'OPTIONS_DARK_MODE_TOGGLE') {
 					renderDarkModeMeta(darkModeIsEnabled);
 				}
 
@@ -622,7 +614,7 @@ Evader.extend(
 						'GAME_OVER',
 						'OPTIONS_GAME_MODE_CHANGE',
 						'OPTIONS_GAME_RANDOMISER_TOGGLE',
-						'OPTIONS_DARK_THEME_TOGGLE',
+						'OPTIONS_DARK_MODE_TOGGLE',
 						'OPTIONS_VOLUME_TOGGLE',
 					].includes(gameState.updateType);
 				if (!renderCondition) {
@@ -670,7 +662,7 @@ Evader.extend(
 					innerHTMLSetter.gameOverlay.randomiserBtn(randomiserIsAbsolutelyEnabled);
 				}
 
-				if (updateType === 'OPTIONS_DARK_THEME_TOGGLE') {
+				if (updateType === 'OPTIONS_DARK_MODE_TOGGLE') {
 					innerHTMLSetter.gameOverlay.darkModeBtn(darkModeIsEnabled);
 				}
 

@@ -192,6 +192,7 @@ Evader.extend(
 					},
 					{ statePath: 'updateType', newState: 'GAME_INIT' },
 				]);
+				Evader.audio.play('gameOptionPlay');
 			},
 			holdPlayer(cursor) {
 				const {

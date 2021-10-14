@@ -63,7 +63,7 @@ Evader.extend(
 			if (
 				![
 					'GAME_OVER',
-					'OPTIONS_DARK_THEME_TOGGLE',
+					'OPTIONS_DARK_MODE_TOGGLE',
 					'OPTIONS_GAME_MODE_CHANGE',
 					'OPTIONS_GAME_RANDOMISER_TOGGLE',
 					'OPTIONS_VOLUME_TOGGLE',
@@ -218,7 +218,7 @@ Evader.extend(
 				'misc.lastGame',
 				'misc.gameOptions.godMode',
 			],
-			OPTIONS_DARK_THEME_TOGGLE: ['misc.gameOptions.darkModeIsEnabled'],
+			OPTIONS_DARK_MODE_TOGGLE: ['misc.gameOptions.darkModeIsEnabled'],
 			OPTIONS_GAME_MODE_CHANGE: ['misc.gameOptions.gameMode'],
 			OPTIONS_GAME_RANDOMISER_TOGGLE: ['misc.gameOptions.randomiserEnabledOn'],
 			OPTIONS_CLEAR_PLAYER_STATS: [],

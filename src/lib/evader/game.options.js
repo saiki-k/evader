@@ -10,8 +10,9 @@ Evader.extend(
 				} = Evader.state.getGameState();
 				Evader.state.updateGameState([
 					{ statePath: 'misc.gameOptions.darkModeIsEnabled', newState: !darkModeIsEnabled },
-					{ statePath: 'updateType', newState: 'OPTIONS_DARK_THEME_TOGGLE' },
+					{ statePath: 'updateType', newState: 'OPTIONS_DARK_MODE_TOGGLE' },
 				]);
+				Evader.audio.play('gameOptionDarkModeToggle');
 			},
 			changeGameMode() {
 				const {
@@ -24,6 +25,8 @@ Evader.extend(
 					{ statePath: 'misc.gameOptions.gameMode', newState: newGameMode },
 					{ statePath: 'updateType', newState: 'OPTIONS_GAME_MODE_CHANGE' },
 				]);
+				const audioSpriteKey = `gameOption${newGameMode === 'sprint' ? 'SprintMode' : 'MeditationMode'}`;
+				Evader.audio.play(audioSpriteKey);
 			},
 			toggleRandomiser() {
 				const {
@@ -40,9 +43,12 @@ Evader.extend(
 					{ statePath: 'misc.gameOptions.randomiserEnabledOn', newState: newRandomiserState },
 					{ statePath: 'updateType', newState: 'OPTIONS_GAME_RANDOMISER_TOGGLE' },
 				]);
+				const randomiserIsAbsolutelyEnabled = !Object.values(newRandomiserState).some((v) => !v);
+				Evader.audio.play(`gameOptionRandomiser${randomiserIsAbsolutelyEnabled ? 'On' : 'Off'}`);
 			},
 			clearPlayerStats() {
 				Evader.state.updateGameState([{ statePath: 'updateType', newState: 'OPTIONS_CLEAR_PLAYER_STATS' }]);
+				Evader.audio.play('gameOptionClearStats');
 			},
 			toggleGodMode() {
 				const {
@@ -73,6 +79,7 @@ Evader.extend(
 					{ statePath: 'misc.gameOptions.volume', newState: newVolumeIndex },
 					{ statePath: 'updateType', newState: 'OPTIONS_VOLUME_TOGGLE' },
 				]);
+				Evader.audio.play('gameOptionVolumeToggle');
 			},
 		};
 	})()
