@@ -6,11 +6,10 @@ const merge = require('merge-stream');
 const { series, src, dest } = require('gulp');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
-const uglify = require('gulp-uglify');
+const terser = require('gulp-terser');
 const cleanCSS = require('gulp-clean-css');
 const htmlreplace = require('gulp-html-replace');
 const htmlmin = require('gulp-htmlmin');
-const ghPages = require('gulp-gh-pages');
 const file = require('gulp-file');
 const gtag = require('gulp-gtag');
 
@@ -56,7 +55,7 @@ function scripts() {
 
 	return src(files)
 		.pipe(concat('evader.js'))
-		.pipe(uglify())
+		.pipe(terser())
 		.pipe(rename('evader.min.js'))
 		.pipe(dest(destAssetsDirectory));
 }
@@ -73,7 +72,7 @@ function html() {
 		.pipe(dest(destDirectory));
 }
 
-function deploy() {
+function addDeployTimeArtefacts() {
 	const CNAME_RECORD = 'evader.red';
 	const GOOGLE_ANALYTICS_GTAG = 'G-4M7D55BJ47';
 
@@ -81,13 +80,10 @@ function deploy() {
 		.pipe(gtag({ uid: GOOGLE_ANALYTICS_GTAG, minify: true }))
 		.pipe(dest(destDirectory));
 
-	const publishToGitHubPages = src(`${destDirectory}/**/*`)
-		.pipe(file('CNAME', CNAME_RECORD))
-		.pipe(dest(destDirectory))
-		.pipe(ghPages());
+	const addCNAMERecord = src(`${destDirectory}/**/*`).pipe(file('CNAME', CNAME_RECORD)).pipe(dest(destDirectory));
 
-	return merge(addGoogleAnalytics, publishToGitHubPages);
+	return merge(addGoogleAnalytics, addCNAMERecord);
 }
 
 exports.default = series(clean, assets, styles, scripts, html);
-exports.deploy = series(clean, assets, styles, scripts, html, deploy);
+exports.prepareDeploy = series(clean, assets, styles, scripts, html, addDeployTimeArtefacts);
