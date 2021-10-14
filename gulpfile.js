@@ -13,6 +13,8 @@ const htmlmin = require('gulp-htmlmin');
 const file = require('gulp-file');
 const gtag = require('gulp-gtag');
 
+const ghPages = require('gh-pages');
+
 const destDirectory = './build';
 const destAssetsDirectory = path.join(destDirectory, 'assets');
 
@@ -72,7 +74,7 @@ function html() {
 		.pipe(dest(destDirectory));
 }
 
-function addDeployTimeArtefacts() {
+function addDeployTimeArtefactsToBuild() {
 	const CNAME_RECORD = 'evader.red';
 	const GOOGLE_ANALYTICS_GTAG = 'G-4M7D55BJ47';
 
@@ -85,5 +87,14 @@ function addDeployTimeArtefacts() {
 	return merge(addGoogleAnalytics, addCNAMERecord);
 }
 
-exports.default = series(clean, assets, styles, scripts, html);
-exports.prepareDeploy = series(clean, assets, styles, scripts, html, addDeployTimeArtefacts);
+function publishBuildToGitHubPages(cb) {
+	const { version } = require('./package.json');
+	ghPages.publish('build', { message: `Publish v${version} (${new Date().toISOString()})` }, function (err) {
+		cb(err);
+	});
+}
+
+const build = series(clean, assets, styles, scripts, html);
+
+exports.default = build;
+exports.deploy = series(build, addDeployTimeArtefactsToBuild, publishBuildToGitHubPages);
