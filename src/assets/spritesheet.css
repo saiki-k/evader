@@ -1,0 +1,120 @@
+.sprite-apprenticeMedal {
+	background-image: url(spritesheet.png);
+	background-position: 0px 0px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-bronzeMedal {
+	background-image: url(spritesheet.png);
+	background-position: -82px 0px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-broom {
+	background-image: url(spritesheet.png);
+	background-position: 0px -82px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-chequeredFlag {
+	background-image: url(spritesheet.png);
+	background-position: -82px -82px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-cloud {
+	background-image: url(spritesheet.png);
+	background-position: -164px 0px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-extraordinaireMedal {
+	background-image: url(spritesheet.png);
+	background-position: -164px -82px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-github {
+	background-image: url(spritesheet.png);
+	background-position: 0px -164px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-godMode {
+	background-image: url(spritesheet.png);
+	background-position: -82px -164px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-goldMedal {
+	background-image: url(spritesheet.png);
+	background-position: -164px -164px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-highVolumeSpeaker {
+	background-image: url(spritesheet.png);
+	background-position: -246px 0px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-indexFingerPointingDown {
+	background-image: url(spritesheet.png);
+	background-position: -246px -82px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-lowVolumeSpeaker {
+	background-image: url(spritesheet.png);
+	background-position: -246px -164px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-meditationMode {
+	background-image: url(spritesheet.png);
+	background-position: 0px -246px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-mediumVolumeSpeaker {
+	background-image: url(spritesheet.png);
+	background-position: -82px -246px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-mutedVolumeSpeaker {
+	background-image: url(spritesheet.png);
+	background-position: -164px -246px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-randomiser {
+	background-image: url(spritesheet.png);
+	background-position: -246px -246px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-silverMedal {
+	background-image: url(spritesheet.png);
+	background-position: -328px 0px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-sprintMode {
+	background-image: url(spritesheet.png);
+	background-position: -328px -82px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-sunBehindCloud {
+	background-image: url(spritesheet.png);
+	background-position: -328px -164px;
+	width: 72px;
+	height: 72px;
+}
+.sprite-victoryHand {
+	background-image: url(spritesheet.png);
+	background-position: -328px -246px;
+	width: 72px;
+	height: 72px;
+}

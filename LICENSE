@@ -1,0 +1,50 @@
+MIT License
+
+Copyright (c) Sai Kishore Komanduri.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+The above LICENSE applies only to the code in this repository, and NOT to the
+assets specified below.
+
+## Sounds
+
+-   Game Background Track (sourced from https://chriszabriskie.bandcamp.com/track/land-on-the-golden-gate)
+-   Collision SFX · Enemy+Wall (sourced from https://freesound.org/people/Osiruswaltz/sounds/457742/)
+-   Collision SFX · Player+Enemy (sourced from https://freesound.org/people/Nodgez/sounds/488665/)
+-   Collision SFX · Player+Wall (sourced from https://freesound.org/people/Nodgez/sounds/488664/)
+-   Game Overlay Button SFX · Select (sourced from https://freesound.org/people/nezuai/sounds/582607/)
+-   Game Overlay Button SFX · Deslect (sourced from https://freesound.org/people/nezuai/sounds/582609/)
+-   Game Overlay Button SFX · Play Game (sourced from https://freesound.org/people/nezuai/sounds/582606/)
+-   Game Overlay Button SFX · Sprint Mode (sourced from https://freesound.org/people/nezuai/sounds/582602/)
+-   Game Overlay Button SFX · Meditation Mode (sourced from https://freesound.org/people/nezuai/sounds/582601/)
+-   Game Overlay Button SFX · Clear Stats (sourced from https://freesound.org/people/EpicSoundEffects/sounds/475874/)
+-   Game Overlay Button SFX · Dark Mode Toggle (sourced from https://freesound.org/people/daddo22/sounds/442313/)
+-   Game Overlay Button SFX · Volume Toggle (sourced from https://freesound.org/people/Joao_Janz/sounds/477704/)
+
+## Images
+
+-   Facebook Emojis (sourced from https://unicode.org/emoji/charts/full-emoji-list.html)
+-   GitHub Icon (sourced from https://icons8.com/icons/set/plasticine-github)
+
+## Font
+
+-   Fira Code (sourced from https://fonts.google.com/specimen/Fira+Code)
