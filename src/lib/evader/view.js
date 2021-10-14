@@ -125,6 +125,10 @@ Evader.extend(
 						return;
 					}
 
+					if (Evader.state.getGameState().updateType === 'GAME_INIT') {
+						return;
+					}
+
 					Object.keys(elements.gameOverlayButtons).forEach((key) => {
 						if (key === buttonKey) return;
 						const otherButtonElement = elements.gameOverlayButtons[key];
