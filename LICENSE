@@ -31,6 +31,7 @@ assets specified below.
 -   Collision SFX · Enemy+Wall (sourced from https://freesound.org/people/Osiruswaltz/sounds/457742/)
 -   Collision SFX · Player+Enemy (sourced from https://freesound.org/people/Nodgez/sounds/488665/)
 -   Collision SFX · Player+Wall (sourced from https://freesound.org/people/Nodgez/sounds/488664/)
+-   Announcement SFX · Game Progress (sourced from Ivy's voice provided by Amazon Polly, a text-to-speech engine)
 -   Game Overlay Button SFX · Select (sourced from https://freesound.org/people/nezuai/sounds/582607/)
 -   Game Overlay Button SFX · Deslect (sourced from https://freesound.org/people/nezuai/sounds/582609/)
 -   Game Overlay Button SFX · Play Game (sourced from https://freesound.org/people/nezuai/sounds/582606/)
