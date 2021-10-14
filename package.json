@@ -1,6 +1,6 @@
 {
 	"name": "evader",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Evader is a minimal game about evading oncoming obstacles in a constricted area.",
 	"main": "index.js",
 	"scripts": {
