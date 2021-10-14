@@ -40,12 +40,10 @@ I am thankful to Nikhil Astakala and Sai Somanath Komanduri for their inputs on 
 
 The game's aesthetic value is majorly because of
 
--   the beautifully designed Facebook emojis;
--   the amazingly well done ethereal soundtrack by Chris Zabriskie;
--   and freesound.org for providing a platform to host high quality sound-effects, a few of which aptly enhance **evader**.
+-   the emojis, designed by Facebook;
+-   the ethereal soundtrack, composed by Chris Zabriskie;
+-   the sound effects from freesound.org.
 
-I have tried my best to credit all of the above resources in the LICENSE file.
-
-Thanks are also due to Joshua Matthew, Bhargavi Komanduri, and Srinivas Gunti for their motivation, feedback, and for testing the game.
+Thanks are also due to Sirish Satyavolu for his feedback on the game SFX; and to Joshua Matthew, Bhargavi Komanduri, and Srinivas Gunti for their motivation, and for testing the game.
 
 Thank you for reading! The process of creating **evader** was a joy, and I sincerely hope that you get to derive something nice out of this.

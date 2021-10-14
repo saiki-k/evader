@@ -15,7 +15,7 @@ Evader.extend(
 
 		/* NOTE
 		 **
-		 ** We maintain an elements object to prevent repetitive DOM lookups.
+		 ** We maintain an "elements" object to prevent repetitive DOM lookups.
 		 */
 		const elements = {
 			gameOptions: {
