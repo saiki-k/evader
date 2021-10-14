@@ -7,7 +7,8 @@
 		"start": "serve ./src/",
 		"build": "gulp",
 		"serve:build": "serve ./build/",
-		"start:build": "npm run build && npm run serve:build"
+		"start:build": "npm run build && npm run serve:build",
+		"postversion": "git push && git push --tags"
 	},
 	"repository": {
 		"type": "git",
