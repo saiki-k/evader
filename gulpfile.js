@@ -74,17 +74,18 @@ function html() {
 		.pipe(dest(destDirectory));
 }
 
-function addDeployTimeArtefactsToBuild() {
-	const CNAME_RECORD = 'evader.red';
+function addGoogleAnalytics() {
 	const GOOGLE_ANALYTICS_GTAG = 'G-4M7D55BJ47';
 
-	const addGoogleAnalytics = src(`${destDirectory}/index.html`)
+	return src(`${destDirectory}/index.html`)
 		.pipe(gtag({ uid: GOOGLE_ANALYTICS_GTAG, minify: true }))
 		.pipe(dest(destDirectory));
+}
 
-	const addCNAMERecord = src(`${destDirectory}/**/*`).pipe(file('CNAME', CNAME_RECORD)).pipe(dest(destDirectory));
+function addCNAMERecord() {
+	const CNAME_RECORD = 'evader.red';
 
-	return merge(addGoogleAnalytics, addCNAMERecord);
+	return src(`${destDirectory}/**/*`).pipe(file('CNAME', CNAME_RECORD)).pipe(dest(destDirectory));
 }
 
 function publishBuildToGitHubPages(cb) {
@@ -97,4 +98,4 @@ function publishBuildToGitHubPages(cb) {
 const build = series(clean, assets, styles, scripts, html);
 
 exports.default = build;
-exports.deploy = series(build, addDeployTimeArtefactsToBuild, publishBuildToGitHubPages);
+exports.deploy = series(build, addGoogleAnalytics, addCNAMERecord, publishBuildToGitHubPages);
