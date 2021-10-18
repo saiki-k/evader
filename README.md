@@ -38,7 +38,7 @@ As I've mentioned previously, over time **evader** turned into its own thing. Al
 
 I would be amiss if I didn't mention the people, and resources whose help has been invaluable in building **evader**.
 
-I am thankful to Nikhil Astakala and Sai Somanath Komanduri for their inputs on certain game mechanics, and for being such ardent testers of the game.
+I am thankful to [Nikhil Astakala](https://github.com/nikhilism15) and [Sai Somanath Komanduri](https://github.com/saisk8) for their inputs on certain game mechanics, and for being such ardent testers of the game.
 
 The game's aesthetic value is majorly because of
 
@@ -46,6 +46,6 @@ The game's aesthetic value is majorly because of
 -   the ethereal soundtrack, composed by Chris Zabriskie;
 -   the sound effects from freesound.org.
 
-Thanks are also due to Sirish Satyavolu for his feedback on the game SFX; and to Joshua Matthew, Bhargavi Komanduri, and Srinivas Gunti for their motivation, and for testing the game.
+Thanks are also due to [Sirish Satyavolu](https://twitter.com/sirishsatyavolu) for his feedback on the game SFX; and to [Joshua Matthew](https://github.com/jmathew-k), [Bhargavi Komanduri](https://www.linkedin.com/in/bhargavikomanduri/), and [Srinivas Gunti](https://github.com/Itnug) for their motivation, and for testing the game.
 
 Thank you for reading! The process of creating **evader** was a joy, and I sincerely hope that you get to derive something nice out of this.
