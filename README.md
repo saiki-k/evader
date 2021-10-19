@@ -1,6 +1,12 @@
 # evader
 
-<a href="https://www.producthunt.com/posts/evader?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-evader" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=315943&theme=light" alt="EVADER - A minimal game on evading obstacles in a constricted area | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/evader?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-evader" target="_blank">
+  <img
+    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=315943&theme=light"
+    alt="EVADER - A minimal game on evading obstacles in a constricted area | Product Hunt"
+    style="width: 250px; height: 54px;" width="250" height="54"
+  />
+</a>
 
 **evader** is a minimal game about evading oncoming obstacles in a constricted area. You can play the game -- [here](https://fatman-.github.io/evader). Hope you have fun!
 
@@ -43,8 +49,10 @@ I am thankful to [Nikhil Astakala](https://github.com/nikhilism15) and [Sai Soma
 The game's aesthetic value is majorly because of
 
 -   the emojis, designed by Facebook;
--   the ethereal soundtrack, composed by Chris Zabriskie;
+-   the ethereal soundtrack, composed by [Chris Zabriskie](https://chriszabriskie.bandcamp.com/);
 -   the sound effects from freesound.org.
+
+A complete list of the exact sounds assets used (along with their source), can be found inside the LICENSE file.
 
 Thanks are also due to [Sirish Satyavolu](https://twitter.com/sirishsatyavolu) for his feedback on the game SFX; and to [Joshua Matthew](https://github.com/jmathew-k), [Bhargavi Komanduri](https://www.linkedin.com/in/bhargavikomanduri/), and [Srinivas Gunti](https://github.com/Itnug) for their motivation, and for testing the game.
 
