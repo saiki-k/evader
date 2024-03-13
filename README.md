@@ -8,7 +8,7 @@
   />
 </a>
 
-**evader** is a minimal game about evading oncoming obstacles in a constricted area. You can play the game -- [here](https://fatman-.github.io/evader/). Hope you have fun!
+**evader** is a minimal game about evading oncoming obstacles in a constricted area. You can play the game -- [here](https://saiki-k.github.io/evader/). Hope you have fun!
 
 <p align="center">
   <img src="misc/screenshot.png" alt="evader's Screenshot"/>
